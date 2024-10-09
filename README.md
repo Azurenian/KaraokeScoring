@@ -1,3 +1,3 @@
 # KaraokeScoring
 
-pip install demucs
+Suggest using Visual Studio Code 
