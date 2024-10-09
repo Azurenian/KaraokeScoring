@@ -1,1 +1,3 @@
 # KaraokeScoring
+
+pip install demucs
