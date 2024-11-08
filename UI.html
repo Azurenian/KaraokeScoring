@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karaoke Web App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 800px;
+            height: 800px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container {
+            flex: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .browser-container {
+            flex: 7;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .button-container {
+            flex: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .karaoke-button {
+            padding: 20px 40px;
+            font-size: 18px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .karaoke-button.red {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Image Section -->
+    <div class="image-container">
+        <img src="Karaoke Banner2.jpg" alt="Karaoke Banner">
+    </div>
+
+    <!-- Embedded YouTube Video Section -->
+    <div class="browser-container">
+        <iframe id="karaoke-browser" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+    </div>
+
+    <!-- Button Section -->
+    <div class="button-container">
+        <button id="karaoke-button" class="karaoke-button">Start Karaoke</button>
+    </div>
+</div>
+
+<script>
+    let karaokeRunning = false;
+
+    // Select the button and the iframe
+    const button = document.getElementById('karaoke-button');
+    const browser = document.getElementById('karaoke-browser');
+
+    // Toggle Karaoke state
+    button.addEventListener('click', function () {
+        if (!karaokeRunning) {
+            // Disable iframe interaction, change button to red and update text
+            browser.style.pointerEvents = 'none';
+            button.textContent = "Stop Karaoke";
+            button.classList.add('red');
+            karaokeRunning = true;
+        } else {
+            // Enable iframe interaction, change button to green and update text
+            browser.style.pointerEvents = 'auto';
+            button.textContent = "Start Karaoke";
+            button.classList.remove('red');
+            karaokeRunning = false;
+        }
+    });
+</script>
+
+</body>
+</html>
